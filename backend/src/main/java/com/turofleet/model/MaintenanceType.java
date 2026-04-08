@@ -1,0 +1,18 @@
+package com.turofleet.model;
+
+public enum MaintenanceType {
+    OIL_CHANGE,
+    TIRE_ROTATION,
+    TIRE_REPLACEMENT,
+    BRAKE_INSPECTION,
+    BRAKE_REPLACEMENT,
+    AIR_FILTER,
+    TRANSMISSION_FLUID,
+    COOLANT_FLUSH,
+    BATTERY_CHECK,
+    ALIGNMENT,
+    SPARK_PLUGS,
+    TIMING_BELT,
+    FULL_INSPECTION,
+    OTHER
+}
