@@ -3,7 +3,7 @@ import { Vehicle, Trip, DashboardStats, VehicleExpense, ProfitabilitySummary } f
 import { VehiclePerformance, FleetHealthSummary, FleetAlert, MonthlyRevenue, RevenueBreakdown, LocationStat } from '../types/Analytics';
 
 const api = axios.create({
-  baseURL: 'http://localhost:9090/api',
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:9090/api',
 });
 
 export const vehicleApi = {
@@ -62,10 +62,10 @@ export const maintenanceApi = {
 };
 
 export const reportApi = {
-  exportTrips: () => window.open('http://localhost:9090/api/reports/trips/csv'),
+  exportTrips: () => window.open(`${api.defaults.baseURL}/reports/trips/csv`),
   exportExpenses: (vehicleId?: number) =>
-    window.open(`http://localhost:9090/api/reports/expenses/csv${vehicleId ? `?vehicleId=${vehicleId}` : ''}`),
-  exportProfitability: () => window.open('http://localhost:9090/api/reports/profitability/csv'),
+    window.open(`${api.defaults.baseURL}/reports/expenses/csv${vehicleId ? `?vehicleId=${vehicleId}` : ''}`),
+  exportProfitability: () => window.open(`${api.defaults.baseURL}/reports/profitability/csv`),
   getTaxSummary: () => api.get<any>('/reports/tax-summary').then(r => r.data),
 };
 
